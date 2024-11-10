@@ -111,7 +111,9 @@ const Cards = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000);
       }
     };
     fetchAnimeData();
@@ -161,7 +163,6 @@ const Cards = () => {
       {win && (
         <div className="game-over">
           <h1>{"Congratulations! You Won"}</h1>
-          <h2>Score : {currScore}</h2>
           <h2>Highest score : {highestScore}</h2>
           <button onClick={resetGame}>Play Again</button>
         </div>
