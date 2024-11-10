@@ -57,7 +57,7 @@ button {
   transition: border-color 0.25s;
 }
 
-img{
+.card img{
   border-radius: 0.5rem;
   border: #B0C4DE solid;
   object-fit: cover;
@@ -98,9 +98,6 @@ button:focus-visible {
   gap: 1rem;
 }
 
-.loading-gif > img{
-  border: none;
-}
 
 @media (min-width: 680px) {
   .card-container {
