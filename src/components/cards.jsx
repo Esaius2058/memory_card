@@ -42,16 +42,13 @@ const Cards = () => {
         setHighestScore(newScore);
       }
 
-      if (newScore === 10) {
+      if (newScore === 12) {
         setWin(true);
       }
     } else {
       setClickedCards([]);
       setCurrScore(0);
     }
-    console.log(clickedCards);
-    console.log("Current Score: ", currScore);
-    console.log("Best Score: ", highestScore);
   };
 
   const resetGame = () => {
@@ -111,7 +108,6 @@ const Cards = () => {
         const data = await response.json();
         setAnimeData(data);
         setCharList(data.data.Media.characters.nodes);
-        console.log(data);
       } catch (error) {
         console.error(error);
       } finally {
@@ -142,12 +138,12 @@ const Cards = () => {
           </div>
           <div className="card-container">
             {animeData?.data?.Media?.characters?.nodes
-              .slice(0, 10)
+              .slice(0, 12)
               .map((character, index) => (
                 <button
                   key={index}
                   id={index}
-                  onClick={() => shuffleCards(character)} // Also changed this from character to index
+                  onClick={() => shuffleCards(character)}
                   className="card"
                 >
                   <div>
@@ -164,7 +160,7 @@ const Cards = () => {
       )}
       {win && (
         <div className="game-over">
-          <h1>{"Congratulation! You Won"}</h1>
+          <h1>{"Congratulations! You Won"}</h1>
           <h2>Score : {currScore}</h2>
           <h2>Highest score : {highestScore}</h2>
           <button onClick={resetGame}>Play Again</button>
